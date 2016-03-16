@@ -26,6 +26,7 @@ var Example = React.createClass({
 
         return <div className="Example">
             <div className="Example-Editor">
+                <MarkupEditor.Toolbar editorState={editorState} onChange={this.onEditorChanged} />
                 <MarkupEditor editorState={editorState} onChange={this.onEditorChanged} />
             </div>
             <div className="Example-Preview"><pre>{markdownString}</pre></div>

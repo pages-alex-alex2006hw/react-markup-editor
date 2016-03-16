@@ -1,10 +1,11 @@
+@import './variables.less';
+@import (inline) '../node_modules/draft-js/dist/Draft.css';
+
 .MarkupEditor {
     padding: @MarkupEditor-padding;
     font-family: @MarkupEditor-fontFamily;
     font-size: @MarkupEditor-fontSize;
 
-    @import (inline) '../node_modules/draft-js/dist/Draft.css';
-    @import './variables.less';
     @import './code.less';
     @import './heading.less';
     @import './blockquote.less';

@@ -1,0 +1,41 @@
+@import './variables.less';
+
+.MarkupEditor-Toolbar {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+    user-select: none;
+
+    padding-right: @MarkupEditor-padding;
+    padding-left: @MarkupEditor-padding;
+    padding-top: @MarkupEditor-padding;
+    padding-bottom: @MarkupEditor-padding;
+
+    .Toolbar-Group {
+        display: inline-block;
+        margin-right: 1.5*@MarkupEditor-Toolbar-spacing;
+    }
+
+    .Toolbar-Button {
+        color: #999;
+        cursor: pointer;
+        margin-right: 6px;
+        padding: 4px;
+        background: @MarkupEditor-Toolbar-Button-background;
+        border-radius: @MarkupEditor-Toolbar-Button-radius;
+        display: inline-block;
+
+        &.active {
+            background: #5890ff;
+            color: #fff;
+        }
+    }
+
+    .Toolbar-Select {
+        display: inline-block;
+        color: #999;
+        padding: 4px;
+        background: @MarkupEditor-Toolbar-Button-background;
+        border-radius: @MarkupEditor-Toolbar-Button-radius;
+    }
+}

@@ -1,6 +1,13 @@
 # react-markup-editor
 
+[![Build Status](https://travis-ci.org/GitbookIO/react-markup-editor.png?branch=master)](https://travis-ci.org/GitbookIO/react-markup-editor)
+[![NPM version](https://badge.fury.io/js/react-markup-editor.svg)](http://badge.fury.io/js/react-markup-editor)
+
+
 > WYSIWYG React component using [draft-js](https://facebook.github.io/draft-js/) and [draft-markup](https://github.com/GitbookIO/draft-markup).
+
+
+----
 
 ### Installation
 
@@ -34,9 +41,13 @@ var MyApp = React.createComponent({
         });
     },
 
-    // Render the editor
+    // Render the application
+    // Toolbar and Editor are disociated component, you can use your own custom toolbar.
     render: function() {
-        return <MarkupEditor editorState={this.state.editorState} />;
+        return <div id="myapp">
+            <MarkupEditor.Toolbar editorState={this.state.editorState} onChange={this.onChange} />
+            <MarkupEditor editorState={this.state.editorState} onChange={this.onChange} />
+        </div>;
     }
 });
 ```
@@ -61,4 +72,13 @@ MarkupEditor.State.createFromContentState(contentState)
 ##### Configurations
 
 `MarkupEditor` accepts the base propertie of draft-js Editor: `spellCheck`, `direction`.
+
+
+| Property | Description |
+| ----- | ----- |
+| `editorState` | **Required:** State to display |
+| `onChange` | **Required:** Function to call when content has changed |
+
+
+
 
