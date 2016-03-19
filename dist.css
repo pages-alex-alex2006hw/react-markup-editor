@@ -1,0 +1,499 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/**
+ * @providesModule DraftEditor
+ * @permanent
+ */
+
+/**
+ * We inherit the height of the container by default
+ */
+
+.DraftEditor-root,
+.DraftEditor-editorContainer,
+.public-DraftEditor-content {
+  height: inherit;
+  text-align: initial;
+}
+
+.DraftEditor-root {
+  position: relative;
+}
+
+/**
+ * Zero-opacity background used to allow focus in IE. Otherwise, clicks
+ * fall through to the placeholder.
+ */
+
+.DraftEditor-editorContainer {
+  background-color: rgba(255, 255, 255, 0);
+  /* Repair mysterious missing Safari cursor */
+  border-left: 0.1px solid transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.public-DraftEditor-block {
+  position: relative;
+}
+
+.DraftEditor-alignLeft .public-DraftStyleDefault-block {
+  text-align: left;
+}
+
+.DraftEditor-alignLeft .public-DraftEditorPlaceholder-root {
+  left: 0;
+  text-align: left;
+}
+
+.DraftEditor-alignCenter .public-DraftStyleDefault-block {
+  text-align: center;
+}
+
+.DraftEditor-alignCenter .public-DraftEditorPlaceholder-root {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+.DraftEditor-alignRight .public-DraftStyleDefault-block {
+  text-align: right;
+}
+
+.DraftEditor-alignRight .public-DraftEditorPlaceholder-root {
+  right: 0;
+  text-align: right;
+}
+/**
+ * @providesModule DraftEditorPlaceholder
+ */
+
+.public-DraftEditorPlaceholder-root {
+  color: #9197a3;
+  position: absolute;
+  z-index: 0;
+}
+
+.public-DraftEditorPlaceholder-hasFocus {
+  color: #bdc1c9;
+}
+
+.DraftEditorPlaceholder-hidden {
+  display: none;
+}
+/**
+ * @providesModule DraftStyleDefault
+ */
+
+.public-DraftStyleDefault-block {
+  position: relative;
+  white-space: pre-wrap;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/**
+ * These rules provide appropriate text direction for counter pseudo-elements.
+ */
+
+/* @noflip */
+
+.public-DraftStyleDefault-listLTR {
+  direction: ltr;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-listRTL {
+  direction: rtl;
+}
+
+/**
+ * Default spacing for list container elements. Override with CSS as needed.
+ */
+
+.public-DraftStyleDefault-ul,
+.public-DraftStyleDefault-ol {
+  margin: 16px 0;
+  padding: 0;
+}
+
+/**
+ * Default counters and styles are provided for five levels of nesting.
+ * If you require nesting beyond that level, you should use your own CSS
+ * classes to do so. If you care about handling RTL languages, the rules you
+ * create should look a lot like these.
+ */
+
+/* @noflip */
+
+.public-DraftStyleDefault-depth0.public-DraftStyleDefault-listLTR {
+  margin-left: 1.5em;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-depth0.public-DraftStyleDefault-listRTL {
+  margin-right: 1.5em;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-depth1.public-DraftStyleDefault-listLTR {
+  margin-left: 3em;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-depth1.public-DraftStyleDefault-listRTL {
+  margin-right: 3em;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-depth2.public-DraftStyleDefault-listLTR {
+  margin-left: 4.5em;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-depth2.public-DraftStyleDefault-listRTL {
+  margin-right: 4.5em;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-depth3.public-DraftStyleDefault-listLTR {
+  margin-left: 6em;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-depth3.public-DraftStyleDefault-listRTL {
+  margin-right: 6em;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-depth4.public-DraftStyleDefault-listLTR {
+  margin-left: 7.5em;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-depth4.public-DraftStyleDefault-listRTL {
+  margin-right: 7.5em;
+}
+
+/**
+ * Only use `square` list-style after the first two levels.
+ */
+
+.public-DraftStyleDefault-unorderedListItem {
+  list-style-type: square;
+  position: relative;
+}
+
+.public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth0 {
+  list-style-type: disc;
+}
+
+.public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth1 {
+  list-style-type: circle;
+}
+
+/**
+ * Ordered list item counters are managed with CSS, since all list nesting is
+ * purely visual.
+ */
+
+.public-DraftStyleDefault-orderedListItem {
+  list-style-type: none;
+  position: relative;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-listLTR:before {
+  left: -36px;
+  position: absolute;
+  text-align: right;
+  width: 30px;
+}
+
+/* @noflip */
+
+.public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-listRTL:before {
+  position: absolute;
+  right: -36px;
+  text-align: left;
+  width: 30px;
+}
+
+/**
+ * Counters are reset in JavaScript. If you need different counter styles,
+ * override these rules. If you need more nesting, create your own rules to
+ * do so.
+ */
+
+.public-DraftStyleDefault-orderedListItem:before {
+  content: counter(ol0) ". ";
+  counter-increment: ol0;
+}
+
+.public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth1:before {
+  content: counter(ol1) ". ";
+  counter-increment: ol1;
+}
+
+.public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth2:before {
+  content: counter(ol2) ". ";
+  counter-increment: ol2;
+}
+
+.public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth3:before {
+  content: counter(ol3) ". ";
+  counter-increment: ol3;
+}
+
+.public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-depth4:before {
+  content: counter(ol4) ". ";
+  counter-increment: ol4;
+}
+
+.public-DraftStyleDefault-depth0.public-DraftStyleDefault-reset {
+  counter-reset: ol0;
+}
+
+.public-DraftStyleDefault-depth1.public-DraftStyleDefault-reset {
+  counter-reset: ol1;
+}
+
+.public-DraftStyleDefault-depth2.public-DraftStyleDefault-reset {
+  counter-reset: ol2;
+}
+
+.public-DraftStyleDefault-depth3.public-DraftStyleDefault-reset {
+  counter-reset: ol3;
+}
+
+.public-DraftStyleDefault-depth4.public-DraftStyleDefault-reset {
+  counter-reset: ol4;
+}
+.MarkupEditor {
+  padding: 15px;
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+}
+.MarkupEditor .MarkupEditor-code-block {
+  margin-bottom: 20px;
+  position: relative;
+  background: #f5f5f5;
+  padding: 15px;
+}
+.MarkupEditor .MarkupEditor-code-block .syntax {
+  font-family: 'Georgia', serif;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 3px;
+  margin: 3px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.MarkupEditor .MarkupEditor-header-one {
+  font-size: 3em;
+  font-weight: bold;
+}
+.MarkupEditor .MarkupEditor-header-two {
+  font-size: 2.4em;
+  font-weight: bold;
+}
+.MarkupEditor .MarkupEditor-header-three {
+  font-size: 2em;
+  font-weight: bold;
+}
+.MarkupEditor .MarkupEditor-header-four {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.MarkupEditor .MarkupEditor-header-five {
+  font-size: 1em;
+  font-weight: bold;
+}
+.MarkupEditor .MarkupEditor-header-six {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.MarkupEditor .MarkupEditor-blockquote {
+  border-left: 5px solid #e7e7e7;
+  color: #666;
+  padding: 10px 20px;
+}
+.MarkupEditor .MarkupEditor-blockquote + .MarkdownEditor-blockquote {
+  margin-top: -16px;
+}
+.MarkupEditor .MarkupEditor-hr {
+  height: 4px;
+  padding: 0;
+  margin: 0px;
+  margin-bottom: 20px;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+.MarkupEditor .MarkupEditor-block {
+  margin-bottom: 20px;
+}
+.MarkupEditor-Toolbar {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  margin-bottom: 5px;
+  user-select: none;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.MarkupEditor-Toolbar .Toolbar-Group {
+  display: inline-block;
+  margin-right: 15px;
+}
+.MarkupEditor-Toolbar .Toolbar-Button {
+  color: #999;
+  cursor: pointer;
+  margin-right: 6px;
+  padding: 4px;
+  background: #f4f4f4;
+  border-radius: 3px;
+  display: inline-block;
+}
+.MarkupEditor-Toolbar .Toolbar-Button.active {
+  background: #5890ff;
+  color: #fff;
+}
+.MarkupEditor-Toolbar .Toolbar-Select {
+  display: inline-block;
+  color: #999;
+  padding: 4px;
+  background: #f4f4f4;
+  border-radius: 3px;
+}
+* {
+  box-sizing: border-box;
+}
+body,
+html,
+#target {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.Example {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.Example-Editor {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.Example-Editor .MarkupEditor-Toolbar {
+  flex: 1 0 auto;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.05);
+  background: #f5f5f5;
+  border-bottom: 1px solid #e1e1e1;
+}
+.Example-Editor .MarkupEditor {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+.Example-Preview,
+.Example-RawState {
+  font-family: "Inconsolata", "Menlo", "Consolas", monospace;
+  word-wrap: break-word;
+  background: rgba(0, 0, 0, 0.04);
+  overflow-y: auto;
+  padding: 20px;
+  border: 3px solid #ccc;
+  border-right: 0px;
+  border-top: 0px;
+}
+.Example-Preview {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 50%;
+  height: 50%;
+}
+.Example-RawState {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 50%;
+  height: 50%;
+  border-bottom: 0px;
+}
