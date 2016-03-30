@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/GitBookIO/react-markup-editor#readme",
   "dependencies": {
-    "draft-js": "^0.2.2",
+    "draft-js": "^0.3.0",
     "draft-markup": "^0.1.0",
     "react": "^15.0.0-rc.1"
   },
