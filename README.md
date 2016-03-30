@@ -1,6 +1,6 @@
 # react-markup-editor
 
-[![Build Status](https://travis-ci.org/GitbookIO/react-markup-editor.png?branch=master)](https://travis-ci.org/GitbookIO/react-markup-editor) [![NPM version](https://badge.fury.io/js/react-markup-editor.svg)](http://badge.fury.io/js/react-markup-editor)
+[![Build Status](https://travis-ci.org/GitbookIO/react-markup-editor.png?branch=master)](https://travis-ci.org/GitbookIO/react-markup-editor) [![NPM version](https://badge.fury.io/js/react-markup-editor.svg)](http://badge.fury.io/js/react-markup-editor) [![NPM version](https://badge.fury.io/js/react-markup-editor.svg)](http://badge.fury.io/js/react-markup-editor)
 
 
 > WYSIWYG React component using [draft-js](https://facebook.github.io/draft-js/) and [draft-markup](https://github.com/GitbookIO/draft-markup).
