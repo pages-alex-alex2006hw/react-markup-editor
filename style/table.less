@@ -1,0 +1,42 @@
+.MarkupEditor-table {
+    table {
+        width: 100%;
+        max-width: 100%;
+
+        // Cells
+        > thead,
+        > tbody,
+        > tfoot {
+            > tr {
+                > th,
+                > td {
+                    padding: @MarkupEditor-table-padding;
+                    line-height: @MarkupEditor-lineHeight;
+                    vertical-align: top;
+                    border-top: 1px solid @MarkupEditor-table-border;
+                    word-break: break-all;
+                }
+            }
+        }
+        // Bottom align for column headings
+        > thead > tr > th {
+            vertical-align: bottom;
+            border-bottom: 1px solid @MarkupEditor-table-border;
+        }
+        // Remove top border from thead by default
+        > caption + thead,
+        > colgroup + thead,
+        > thead:first-child {
+            > tr:first-child {
+                > th,
+                > td {
+                    border-top: 0;
+                }
+            }
+        }
+        // Account for multiple tbody instances
+        > tbody + tbody {
+            border-top: 1px solid @MarkupEditor-table-border;
+        }
+    }
+}
