@@ -77,7 +77,50 @@ MarkupEditor.State.createFromContentState(contentState)
 | ----- | ----- |
 | `editorState` | **Required:** State to display |
 | `onChange` | **Required:** Function to call when content has changed |
+| `readOnly` | Disable modification of content (Default: `false`) |
 
 
+##### Rich Styling and Controls
 
+`react-markup-editor` provides an easy to use toolbar, but you can build your own toolbar using the collection of utilities provided by this module:
+
+
+###### Working with tables
+
+Using the `TableUtils` module, you can create and edit tables:
+
+```js
+// Insert a new table at the current selection
+newState = MarkupEditor.TableUtils.insert(state, state.getSelection());
+
+// Insert a new row in the selected table
+newState = MarkupEditor.TableUtils.insertRow(state, state.getSelection());
+
+// Insert a new column in the selected table
+newState = MarkupEditor.TableUtils.insertColumn(state, state.getSelection());
+```
+
+###### Working with links
+
+Using the `LinkUtils` module, you can insert and edit links:
+
+```js
+// Insert a new link
+newState = MarkupEditor.LinkUtils.insert(state, state.getSelection(), 'https://www.google.fr');
+
+// Edit a link
+newState = MarkupEditor.LinkUtils.edit(state, state.getSelection(), 'https://www.google.fr');
+```
+
+###### Working with images
+
+Using the `LinkUtils` module, you can insert and edit images:
+
+```js
+// Insert a new image
+newState = MarkupEditor.ImageUtils.insert(state, state.getSelection(), 'https://www.google.fr/logo.png');
+
+// Edit an image
+newState = MarkupEditor.ImageUtils.edit(state, state.getSelection(), 'https://www.google.fr/logo.png');
+```
 
