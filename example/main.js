@@ -31,6 +31,18 @@ var Example = React.createClass({
         );
     },
 
+    // Edit ID of a an header
+    onEditHeaderID: function(block) {
+        var id = MarkupEditor.HeaderUtils.getID(block);
+
+        // Get new id
+        id = window.prompt('Enter id for this header', id);
+
+        this.onEditorChanged(
+            MarkupEditor.HeaderUtils.editID(this.state.editorState, block, id)
+        );
+    },
+
     render: function() {
         var editorState = this.state.editorState;
         var markdownString = editorState.getAsMarkdown();
@@ -43,6 +55,7 @@ var Example = React.createClass({
                     editorState={editorState}
                     onChange={this.onEditorChanged}
                     onEditCodeSyntax={this.onEditCodeSyntax}
+                    onEditHeaderID={this.onEditHeaderID}
                 />
             </div>
             <div className="Example-Preview"><pre>{markdownString}</pre></div>
