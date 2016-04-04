@@ -13,9 +13,9 @@ var Example = React.createClass({
     },
 
     // Content has changed, update state
-    onEditorChanged: function(editorState) {
+    onEditorChanged: function(state) {
         this.setState({
-            editorState: editorState
+            editorState: state
         });
     },
 
@@ -43,6 +43,18 @@ var Example = React.createClass({
         );
     },
 
+    // Edit a link
+    onEditLink: function(entityKey) {
+        var href = MarkupEditor.LinkUtils.getHref(entityKey);
+        var title = MarkupEditor.LinkUtils.getTitle(entityKey);
+
+        // Get new href
+        href = window.prompt('Href:', href);
+        title = window.prompt('Title:', title);
+
+
+    },
+
     render: function() {
         var editorState = this.state.editorState;
         var markdownString = editorState.getAsMarkdown();
@@ -56,9 +68,12 @@ var Example = React.createClass({
                     onChange={this.onEditorChanged}
                     onEditCodeSyntax={this.onEditCodeSyntax}
                     onEditHeaderID={this.onEditHeaderID}
+                    onEditLink={this.onEditLink}
                 />
             </div>
-            <div className="Example-Preview"><pre>{markdownString}</pre></div>
+            <div className="Example-Preview">
+                <pre>{markdownString}</pre>
+            </div>
             <div className="Example-RawState"><pre>{JSON.stringify(rawContent, null, 4)}</pre></div>
         </div>;
     }
